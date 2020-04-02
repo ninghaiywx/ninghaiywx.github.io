@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>论文笔记：AdderNet Do We Really Need Multiplications in Deep Learning</title>
+    <url>/2020/04/01/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9AAdderNet-Do-We-Really-Need-Multiplications-in/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>如今的卷积神经网络(CNN)的卷积操作中包含了大量的乘法，虽然已经有很多轻量级的网络(如MobileNet)提出来，但是乘法的开销依旧是难以忽视的，要在轻量级设备本地进行深度学习应用，需要使得计算速度进一步加快，于是本论文提出了使用加法操作代替乘法操作，本论文的作者是<strong>Hanting Chen,Yunhe Wang,Chunjing Xu,Boxin Shi,Chao Xu,Qi Tian,Chang Xu</strong>。是CVPR2020上华为诺亚实验室和北京大学合作的一篇文章。<br>论文指出传统卷积操作其实就是使用的一种互相关操作来衡量输入特征和卷积核之间的相似度，而这个互相关的操作就引入了很多乘法操作，因此文章提出另一种方式来衡量输入特征和卷积核之间的相似度，这个方法就是<strong>L1距离</strong>。</p>
+<h1 id="没有乘法的网络"><a href="#没有乘法的网络" class="headerlink" title="没有乘法的网络"></a>没有乘法的网络</h1><p>假设$F \in R^{d \times d \times c_in \times c_{out}}$，F是网络中间某层的过滤器，过滤器大小为d，输入有$c_{in}$个通道，输出有$c_{out}$个通道。输入的特征定义为$X \in R^{H \times W \times c_{in}}$，其中H和W对应着特征的高和宽。则输出的Y有以下式子$$Y(m,n,t) = \sum_{i=0}^n \sum_{j=0}^d \sum_{k=0}^{c_{in}}S(X(m+i,n+j,k),F(i,j,k,t))$$其中S是相似度函数。如果$S(x,y) = x \times y$,那么这个公式就变成了传统卷积神经网络中的卷积操作。</p>
+<h3 id="加法网络"><a href="#加法网络" class="headerlink" title="加法网络"></a>加法网络</h3><p>前面提到过要用L1距离代替互相关操作，那么上述公式就变成$$Y(m,n,t) = - \sum_{i=0}^n \sum_{j=0}^d \sum_{k=0}^{c_{in}}|X(m+i,n+j,k)-F(i,j,k,t)|$$这里作者提到了这样的操作得出的结果都是负值，但是传统卷积网络得到的输出值则是有正有负，但是在输出层后紧接着一个BN层我们可以让输出分布在一个合理的范围。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>在传统卷积网络中Y关于F的反向传播公式如下$$\frac{\partial Y(m,n,t)}{\partial F(i,j,k,t) } = X(m+i,n+j,k)$$在加法网络中，使用了L1距离的反向传播公式如下$$\frac{\partial Y(m,n,t)}{\partial F(i,j,k,t)} = sgn(X(m+i,n+j,k) - F(i,j,k,t))$$文章中说L1距离反向传播的这种signSGD并不能沿着最好的方向下降，有时候还会选择比较糟糕的方向，因此论文中把反向传播公式变成L2距离的反向传播，叫做全精度梯度$$\frac{\partial Y(m,n,t)}{\partial F(i,j,k,t) } = X(m+i,n+j,k) - F(i,j,k,t)$$同时再考虑Y对X的导数，根据链式法则，$\frac{\partial Y}{\partial F_i }$只跟$F_i$自己有关，而$\frac{\partial Y}{\partial X_i }$的梯度值还会影响前一层的值，作者指出这种全精度梯度传播会产生梯度爆炸，于是使用一个HT函数把梯度截断在[-1,1]里，既$$\frac{\partial Y(m,n,t)}{\partial X(m+i,n+j,k) } = HT(F(i,j,k,t) - F(i,j,k,t))$$其中HT代表着HardTanh函数$$HT(x) = x\quad if -1&lt;x&lt;1$$$$HT(x) = 1 \quad x&gt;1$$$$HT(x)=-1\quad x&lt;-1$$</p>
+<h2 id="自适应学习率"><a href="#自适应学习率" class="headerlink" title="自适应学习率"></a>自适应学习率</h2><p>由于加法网络中每层的梯度可能不在一个量级上，所以论文中使用了一种自适应学习率的方法，使得学习率在每一层都不一样。它的公式计算表示为$$\Delta F_l = \gamma \times \alpha_l \times \Delta L(F_l)$$其中$\gamma$是全局学习率，而$\alpha_l$则是每层的学习率。$$\alpha_l = \frac{\eta \sqrt k}{\parallel \Delta L(F_l) \parallel _ 2}$$k代表$F_l$中元素的个数，$\eta$则是一个超参数。有了这样的学习率调整，在每层中都能自动适应当层的情况进行学习率的调整。</p>
+<h1 id="全部算法流程"><a href="#全部算法流程" class="headerlink" title="全部算法流程"></a>全部算法流程</h1>]]></content>
+      <tags>
+        <tag>论文阅读</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/04/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
@@ -17,15 +30,5 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>论文笔记：AdderNet Do We Really Need Multiplications in Deep Learning</title>
-    <url>/2020/04/01/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9AAdderNet-Do-We-Really-Need-Multiplications-in/</url>
-    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>如今的卷积神经网络(CNN)的卷积操作中包含了大量的乘法，虽然已经有很多轻量级的网络(如MobileNet)提出来，但是乘法的开销依旧是难以忽视的，要在轻量级设备本地进行深度学习应用，需要使得计算速度进一步加快，于是本论文提出了使用加法操作代替乘法操作，本论文的作者是<strong>Hanting Chen,Yunhe Wang,Chunjing Xu,Boxin Shi,Chao Xu,Qi Tian,Chang Xu</strong>。是CVPR2020上华为诺亚实验室和北京大学合作的一篇文章。<br>论文指出传统卷积操作其实就是使用的一种互相关操作来衡量输入特征和卷积核之间的相似度，而这个互相关的操作就引入了很多乘法操作，因此文章提出另一种方式来衡量输入特征和卷积核之间的相似度，这个方法就是<strong>L1距离</strong>。</p>
-<h1 id="没有乘法的网络"><a href="#没有乘法的网络" class="headerlink" title="没有乘法的网络"></a>没有乘法的网络</h1><p>假设$F \in R^{d \times d \times c_in \times c_{out}}$，F是网络中间某层的过滤器，过滤器大小为d，输入有$c_{in}$个通道，输出有$c_{out}$个通道。输入的特征定义为$X \in R^{H \times W \times c_{in}}$，其中H和W对应着特征的高和宽。则输出的Y有以下式子$$Y(m,n,t) = \sum_{i=0}^n \sum_{j=0}^d \sum_{k=0}^{c_{in}}S(X(m+i,n+j,k),F(i,j,k,t))$$其中S是相似度函数。如果$S(x,y) = x \times y$,那么这个公式就变成了传统卷积神经网络中的卷积操作。</p>
-<h3 id="加法网络"><a href="#加法网络" class="headerlink" title="加法网络"></a>加法网络</h3><p>前面提到过要用L1距离代替互相关操作，那么上述公式就变成$$Y(m,n,t) = - \sum_{i=0}^n \sum_{j=0}^d \sum_{k=0}^{c_{in}}|X(m+i,n+j,k)-F(i,j,k,t)|$$这里作者提到了这样的操作得出的结果都是负值，但是传统卷积网络得到的输出值则是有正有负，但是在输出层后紧接着一个BN层我们可以让输出分布在一个合理的范围。</p>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>在传统卷积网络中Y关于F的反向传播公式如下$$\frac{\partial Y(m,n,t)}{\partial F(i,j,k,t) } = X(m+i,n+j,k)$$在加法网络中，使用了L1距离的反向传播公式如下$$\frac{\partial Y(m,n,t)}{\partial F(i,j,k,t)} = sgn(X(m+i,n+j,k) - F(i,j,k,t))$$文章中说L1距离反向传播的这种signSGD并不能沿着最好的方向下降，有时候还会选择比较糟糕的方向，因此论文中把反向传播公式变成L2距离的反向传播，叫做全精度梯度$$\frac{\partial Y(m,n,t)}{\partial F(i,j,k,t) } = X(m+i,n+j,k) - F(i,j,k,t)$$同时再考虑Y对X的导数，根据链式法则，$\frac{\partial Y}{\partial F_i }$只跟$F_i$自己有关，而$\frac{\partial Y}{\partial X_i }$的梯度值还会影响前一层的值，作者指出这种全精度梯度传播会产生梯度爆炸，于是使用一个HT函数把梯度截断在[-1,1]里，既$$\frac{\partial Y(m,n,t)}{\partial X(m+i,n+j,k) } = HT(F(i,j,k,t) - F(i,j,k,t))$$其中HT代表着HardTanh函数$$HT(x) = x\quad if -1&lt;x&lt;1 \ HT(x) = 1 \quad x&gt;1 \ HT(x)=-1\quad x&lt;-1$$</p>
-<h2 id="自适应学习率"><a href="#自适应学习率" class="headerlink" title="自适应学习率"></a>自适应学习率</h2><p>由于加法网络中每层的梯度可能不在一个量级上，所以论文中使用了一种自适应学习率的方法，使得学习率在每一层都不一样。它的公式计算表示为$$\Delta F_l = \gamma \times \alpha_l \times \Delta L(F_l)$$其中$\gamma$是全局学习率，而$\alpha_l$则是每层的学习率。$$\alpha_l = \frac{\eta \sqrt k}{\parallel \Delta L(F_l) \parallel _ 2}$$k代表$F_l$中元素的个数，$\eta$则是一个超参数。有了这样的学习率调整，在每层中都能自动适应当层的情况进行学习率的调整。</p>
-<h1 id="全部算法流程"><a href="#全部算法流程" class="headerlink" title="全部算法流程"></a>全部算法流程</h1>]]></content>
   </entry>
 </search>

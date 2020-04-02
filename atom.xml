@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
         
       
     
@@ -44,7 +44,7 @@
     <link href="http://yoursite.com/2020/04/01/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9AAdderNet-Do-We-Really-Need-Multiplications-in/"/>
     <id>http://yoursite.com/2020/04/01/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9AAdderNet-Do-We-Really-Need-Multiplications-in/</id>
     <published>2020-04-01T11:58:26.000Z</published>
-    <updated>2020-04-02T04:13:12.903Z</updated>
+    <updated>2020-04-02T04:22:25.094Z</updated>
     
     <summary type="html">
     
@@ -52,13 +52,15 @@
       
         
         
-          &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot;
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
         
       
     
     </summary>
     
     
+    
+      <category term="论文阅读" scheme="http://yoursite.com/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
