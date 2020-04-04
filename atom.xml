@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ninghaiywx.github.io/"/>
-  <updated>2020-04-01T17:33:44.136Z</updated>
+  <updated>2020-04-04T08:31:38.254Z</updated>
   <id>https://ninghaiywx.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://ninghaiywx.github.io/2020/04/02/hello-world/"/>
-    <id>https://ninghaiywx.github.io/2020/04/02/hello-world/</id>
-    <published>2020-04-01T17:33:44.136Z</published>
-    <updated>2020-04-01T17:33:44.136Z</updated>
+    <title>论文阅读：Generative Adversarial Nets</title>
+    <link href="https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/"/>
+    <id>https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/</id>
+    <published>2020-04-03T12:04:39.000Z</published>
+    <updated>2020-04-04T08:31:38.254Z</updated>
     
     <summary type="html">
     
@@ -36,15 +36,23 @@
     </summary>
     
     
+      <category term="神经网络" scheme="https://ninghaiywx.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="论文" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87/"/>
+    
+      <category term="神经网络" scheme="https://ninghaiywx.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
-    <title>论文笔记：AdderNet Do We Really Need Multiplications in Deep Learning</title>
-    <link href="https://ninghaiywx.github.io/2020/04/01/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9AAdderNet-Do-We-Really-Need-Multiplications-in/"/>
-    <id>https://ninghaiywx.github.io/2020/04/01/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9AAdderNet-Do-We-Really-Need-Multiplications-in/</id>
+    <title>论文阅读：AdderNet：Do We Really Need Multiplications in Deep Learning？</title>
+    <link href="https://ninghaiywx.github.io/2020/04/01/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AAdderNet%EF%BC%9ADo%20We%20Really%20Need%20Multiplications%20in%20Deep%20Learning?/"/>
+    <id>https://ninghaiywx.github.io/2020/04/01/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AAdderNet%EF%BC%9ADo%20We%20Really%20Need%20Multiplications%20in%20Deep%20Learning?/</id>
     <published>2020-04-01T11:58:26.000Z</published>
-    <updated>2020-04-02T06:56:53.119Z</updated>
+    <updated>2020-04-04T08:29:05.630Z</updated>
     
     <summary type="html">
     
@@ -59,8 +67,12 @@
     </summary>
     
     
+      <category term="神经网络" scheme="https://ninghaiywx.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
-      <category term="论文阅读" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="论文" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
       <category term="神经网络" scheme="https://ninghaiywx.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     
