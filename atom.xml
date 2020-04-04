@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ninghaiywx.github.io/"/>
-  <updated>2020-04-04T08:31:38.254Z</updated>
+  <updated>2020-04-04T08:35:04.644Z</updated>
   <id>https://ninghaiywx.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/"/>
     <id>https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/</id>
     <published>2020-04-03T12:04:39.000Z</published>
-    <updated>2020-04-04T08:31:38.254Z</updated>
+    <updated>2020-04-04T08:35:04.644Z</updated>
     
     <summary type="html">
     
@@ -36,9 +36,9 @@
     </summary>
     
     
-      <category term="神经网络" scheme="https://ninghaiywx.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="论文" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/"/>
     
     
       <category term="论文" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87/"/>
@@ -52,7 +52,7 @@
     <link href="https://ninghaiywx.github.io/2020/04/01/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AAdderNet%EF%BC%9ADo%20We%20Really%20Need%20Multiplications%20in%20Deep%20Learning?/"/>
     <id>https://ninghaiywx.github.io/2020/04/01/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AAdderNet%EF%BC%9ADo%20We%20Really%20Need%20Multiplications%20in%20Deep%20Learning?/</id>
     <published>2020-04-01T11:58:26.000Z</published>
-    <updated>2020-04-04T08:29:05.630Z</updated>
+    <updated>2020-04-04T08:34:48.118Z</updated>
     
     <summary type="html">
     
@@ -67,9 +67,9 @@
     </summary>
     
     
-      <category term="神经网络" scheme="https://ninghaiywx.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="论文" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/"/>
     
     
       <category term="论文" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87/"/>
