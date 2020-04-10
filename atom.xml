@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ninghaiywx.github.io/"/>
-  <updated>2020-04-04T08:38:14.337Z</updated>
+  <updated>2020-04-10T13:09:44.076Z</updated>
   <id>https://ninghaiywx.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>论文阅读：Generative Adversarial Nets</title>
-    <link href="https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/"/>
-    <id>https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/</id>
-    <published>2020-04-03T12:04:39.000Z</published>
-    <updated>2020-04-04T08:38:14.337Z</updated>
+    <title>论文阅读：DCGAN网络</title>
+    <link href="https://ninghaiywx.github.io/2020/04/10/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ADCGAN/"/>
+    <id>https://ninghaiywx.github.io/2020/04/10/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ADCGAN/</id>
+    <published>2020-04-10T10:03:29.000Z</published>
+    <updated>2020-04-10T13:09:44.076Z</updated>
     
     <summary type="html">
     
@@ -39,6 +39,41 @@
       <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="论文" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/"/>
+    
+      <category term="2016年" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/2016%E5%B9%B4/"/>
+    
+    
+      <category term="论文" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87/"/>
+    
+      <category term="神经网络" scheme="https://ninghaiywx.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读：Generative Adversarial Nets</title>
+    <link href="https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/"/>
+    <id>https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/</id>
+    <published>2020-04-03T12:04:39.000Z</published>
+    <updated>2020-04-10T10:07:37.868Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="论文" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/"/>
+    
+      <category term="2014年" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/2014%E5%B9%B4/"/>
     
     
       <category term="论文" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87/"/>
@@ -52,7 +87,7 @@
     <link href="https://ninghaiywx.github.io/2020/04/01/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AAdderNet%EF%BC%9ADo%20We%20Really%20Need%20Multiplications%20in%20Deep%20Learning?/"/>
     <id>https://ninghaiywx.github.io/2020/04/01/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AAdderNet%EF%BC%9ADo%20We%20Really%20Need%20Multiplications%20in%20Deep%20Learning?/</id>
     <published>2020-04-01T11:58:26.000Z</published>
-    <updated>2020-04-04T08:34:48.118Z</updated>
+    <updated>2020-04-10T10:06:38.334Z</updated>
     
     <summary type="html">
     
@@ -70,6 +105,8 @@
       <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="论文" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/"/>
+    
+      <category term="2020年" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/2020%E5%B9%B4/"/>
     
     
       <category term="论文" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87/"/>
