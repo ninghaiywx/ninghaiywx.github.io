@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ninghaiywx.github.io/"/>
-  <updated>2020-04-17T09:15:52.496Z</updated>
+  <updated>2020-04-18T11:11:37.456Z</updated>
   <id>https://ninghaiywx.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gan网络全局最优解推导</title>
+    <link href="https://ninghaiywx.github.io/2020/04/18/Gan%E7%BD%91%E7%BB%9C%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%E8%A7%A3%E6%8E%A8%E5%AF%BC/"/>
+    <id>https://ninghaiywx.github.io/2020/04/18/Gan%E7%BD%91%E7%BB%9C%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%E8%A7%A3%E6%8E%A8%E5%AF%BC/</id>
+    <published>2020-04-18T10:08:47.000Z</published>
+    <updated>2020-04-18T11:11:37.456Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="数学" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="https://ninghaiywx.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>论文阅读：u-net</title>
@@ -87,7 +116,7 @@
     <link href="https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/"/>
     <id>https://ninghaiywx.github.io/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/</id>
     <published>2020-04-03T12:04:39.000Z</published>
-    <updated>2020-04-10T10:07:37.868Z</updated>
+    <updated>2020-04-18T10:41:49.436Z</updated>
     
     <summary type="html">
     
