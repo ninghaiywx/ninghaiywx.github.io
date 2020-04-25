@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ninghaiywx.github.io/"/>
-  <updated>2020-04-18T11:11:37.456Z</updated>
+  <updated>2020-04-25T11:03:31.506Z</updated>
   <id>https://ninghaiywx.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>deeplabv3+</title>
+    <link href="https://ninghaiywx.github.io/2020/04/24/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9Adeeplabv3+/"/>
+    <id>https://ninghaiywx.github.io/2020/04/24/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9Adeeplabv3+/</id>
+    <published>2020-04-24T08:46:08.000Z</published>
+    <updated>2020-04-25T11:03:31.506Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="论文" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/"/>
+    
+      <category term="2018年" scheme="https://ninghaiywx.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/2018%E5%B9%B4/"/>
+    
+    
+      <category term="论文" scheme="https://ninghaiywx.github.io/tags/%E8%AE%BA%E6%96%87/"/>
+    
+      <category term="神经网络" scheme="https://ninghaiywx.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>Gan网络全局最优解推导</title>

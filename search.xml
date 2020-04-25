@@ -31,25 +31,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Gan网络全局最优解推导</title>
-    <url>/2020/04/18/Gan%E7%BD%91%E7%BB%9C%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%E8%A7%A3%E6%8E%A8%E5%AF%BC/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本文是对GAN网络中目标函数全局最优解情况的推导，推导过程在<a href="https://arxiv.org/pdf/1406.2661.pdf" target="_blank" rel="noopener">原论文</a>有给出。这里再对其进行一个推导。</p>
-<h1 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h1><p>首先重新看一下目标函数$$\underset Gmin\underset Dmax V(D,G)=E_{x_\tilde{} p_{data}}(x)[logD(x)]+E_{z\tilde{} p_z(z)}[log(1-D(G(z)))]$$</p>
-<p>我们可以先固定G，来求一下D在什么情况下使得函数最大。就变成了求$$\underset Dmax V(D,G)$$</p>
-<h2 id="求解-underset-Dmax-V-D-G"><a href="#求解-underset-Dmax-V-D-G" class="headerlink" title="求解$\underset Dmax V(D,G)$"></a>求解$\underset Dmax V(D,G)$</h2><p>我们先对V(D,G)变一下形，即$$\int_x p_{data}(x)log(D(x))dx+\int_zp_z(z)log(1-D(g(z)))dz$$$$=\int_xp_{data}(x)log(D(x))+p_g(x)log(1-D(x))dx$$</p>
-<p>我们知道对于形如$alog(y)+blog(1-y)$的函数它在[0,1]区间内在$\frac{a}{a+b}$取得最大值，区间为[0,1]是因为x表示的概率分布是[0,1]之间的。所以V(D,G)在$D_G^* = \frac{p_{data}(x)}{p_{data}(x)+p_g(x)}$取得最大值。</p>
-<p>接下来就是求解$\underset GminV(D,G)$。</p>
-<h2 id="求解-underset-GminV-D-G"><a href="#求解-underset-GminV-D-G" class="headerlink" title="求解$\underset GminV(D,G)$"></a>求解$\underset GminV(D,G)$</h2><p>将$\underset DmaxV(D,G)$的$D^* $的值带入原目标函数，则变成了$$C(G) = \underset Dmax V(D,G)$$<br>$$= E_{x_\tilde{} p_{data}}[logD_G^* (x)]+E_{z\tilde{} p_z}[log(1-D_G^* (G(z)))]$$<br>$$=E_{x_\tilde{} p_{data}}[logD_G^* (x)]+E_{x\tilde{} p_g}[log(1-D_G^* (G(x))]$$<br>$$=E_{x_\tilde{} p_{data}}[log\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}]+E_{x\tilde{} p_g}[log\frac{p_g(x)}{p_{data}(x)+p_g(x)}]$$<br>$$=E_{x_\tilde{} p_{data}}[log(\frac{p_{data}(x)}{(p_{data}(x)+p_g(x))/2}* \frac{1}{2})]+E_{x\tilde{} p_g}[log(\frac{p_g(x)}{(p_{data}(x)+p_g(x))/2}* \frac{1}{2})]$$<br>$$=KL(p_{data}||\frac{p_{data}+p_g}{2})+KL(p_g||\frac{p_{data}+p_g}{2})-log4$$<br>由KL散度性质得知当两个分布相等的时候，KL散度为0，所以C(G)在$p^* _g=p_d$的时候最小。把$p^* _g=p_d$再带回$D_G^* $得到$D_G^* =\frac{1}{2}$，这个就是目标函数的全局最优解。</p>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>论文阅读：DCGAN网络</title>
     <url>/2020/04/10/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ADCGAN/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本篇文论文所介绍的DCGAN网络就是在GAN网络的基础上进行改进并引入了图像的卷积操作，即把CNN与GAN网络很好的结合起来，使得网络的生成器最终可以从随机噪声中生成一张以假乱真的图片。该论文作者<strong>Alec Radford &amp; Luke Metz</strong>。作者在文章中并没有对DCGAN网络的具体原理进行公式性的阐述，而是直接呈现了作者自己设计的网络架构和一些参数调整的细节。相关摘要，介绍和相关工作可以直接查看<a href="https://arxiv.org/pdf/1511.06434.pdf" target="_blank" rel="noopener">原论文</a></p>
@@ -108,31 +89,46 @@
       </tags>
   </entry>
   <entry>
-    <title>论文阅读：Generative Adversarial Nets</title>
-    <url>/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>这篇论文是生成对抗(GAN)网络的奠基之作，它提出了一种全新生成的思想，时至今日都是深度学习中热门的一种模型。它的作者是<strong>Ian J.Goodfellow, Jean Pouget-Abadie*, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio</strong></p>
-<p><a href="https://arxiv.org/pdf/1406.2661.pdf" target="_blank" rel="noopener">原论文</a></p>
-<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>GAN网络其实就是两个网络之间的博弈游戏，即网络和网络之间的对抗，其中一个网络G从随机噪声生成样本，而网络D则从来评判一个样本是真实数据的概率，即判别它是来自真实数据集的可能性大还是来自G生成的可能性大。</p>
-<p>这样就形成了一个两个网络之间的博弈过程，那么理想状态下，G希望生成能以假乱真的样本，而D希望能有足够的能力分辨样本是生成的还是真实数据。这样的博弈最优的情况就是D(G(z))=0.5，这样就达到了一最优的状态。这样就说明D已经比较难以判断G生成的图片是否是真的。这样这个模型中的G网络就可以用来生成数据样本了，目的就达到了。用数学公式描述如下$$\underset Gmin\underset Dmax V(D,G)=E_{x_\tilde{} p_{data}}(x)[logD(x)]+E_{z\tilde{} p_z(z)}[log(1-D(G(z)))]$$我们可以简单解释下这个公式:</p>
+    <title>deeplabv3+</title>
+    <url>/2020/04/24/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9Adeeplabv3+/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>deeplabv3+是用于语义分割的deeplab的最新版本，其中加入了类似于U-net思想的解码器结构以及对于编码器中的Xception进行调整。该文章由谷歌团队发表，作者为<em>Liang-Chieh Chen, Yukun Zhu, George Papandreou, Florian Schroffff, and Hartwig Adam</em></p>
+<p><a href="https://arxiv.org/pdf/1802.02611v1.pdf" target="_blank" rel="noopener">原论文</a></p>
+<h1 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h1><p><img src="/" class="lazyload" data-src="https://s1.ax1x.com/2020/04/24/JD8adO.png"  alt="JD8adO.png">)网络的整体架构如上图的(c)所示，它加入了编码-解码的思想，因为在编码的时候经过步长卷积或者池化层，细节信息有所丢失。所以在解码的时候与低层的信息相连接，可以有助于恢复图像边缘信息。更为详细的图如下所示<img src="/" class="lazyload" data-src="https://s1.ax1x.com/2020/04/25/JyQtfJ.png"  alt="JyQtfJ.png"></p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>这一部分对网络结构中用到的一些特殊方法和技巧做一些解释，包括空洞(膨胀)卷积，深度可分离卷积，编码器和解码器。</p>
+<h2 id="空洞-膨胀-卷积"><a href="#空洞-膨胀-卷积" class="headerlink" title="空洞(膨胀)卷积"></a>空洞(膨胀)卷积</h2><p><img src="/" class="lazyload" data-src="https://s1.ax1x.com/2020/04/25/JyQz7T.png"  alt="JyQz7T.png"></p>
+<p>可以看出来跟普通卷积的区别就在于在普通卷积中间注入了空洞，如上图其实就是一个5*5的卷积核和特诊图卷积，但是该卷积核有一些空洞，这就是rate=2的空洞卷积。也可以看出普通卷积就是rate=1的空洞卷积。这样的首要好处就是增大了感受野。</p>
+<p>在二维情况下它的公式就是$$y[i]=\sum_kx[i+r.k]w[k]$$</p>
+<p>r就是空洞卷积的rate。</p>
+<p>当然空洞卷积也会带来问题，如果多次的使用rate为2的空洞卷积叠加，就会发现一直是不连续的像素参与了运算，虽然感受野增大了，但是损失了信息的连续性，这对于像素级的分类也是会损失很多精度的。如下图是3次rate=2的空洞卷积叠加<img src="/" class="lazyload" data-src="https://s1.ax1x.com/2020/04/25/Jy1Ns1.png"  alt="Jy1Ns1.png"></p>
+<p>当然在deeplabv3+中并不涉及到这样的问题，因为它在ASPP中是分别使用了rate=1,6,12,18和一个pooling后的结果拼接后再进行卷积，可以参考网络架构中的图，这样的方法就结合了不同的感受野的特征图，理论上模型学习能力更好。</p>
+<h2 id="深度可分离卷积"><a href="#深度可分离卷积" class="headerlink" title="深度可分离卷积"></a>深度可分离卷积</h2><p>深度可分离卷积最主要目的就是减少网络中的计算量，它是先用1*1卷积将特征图通道数增加，再对每个通道使用一个卷积核进行卷积，下图就是第二步骤的示意图<img src="/" class="lazyload" data-src="https://s1.ax1x.com/2020/04/25/Jy3fXR.png"  alt="Jy3fXR.png">这样的方法比起普通卷积在学习能力上会有一点点欠缺（不是特别明显），但是计算量少了非常多，可以减少为传统卷积的$\frac{1}{9}$-$\frac{1}{10}$左右。</p>
+<p>深度可分离卷积的思想也可以用于空洞卷积上，如下图的(c)所示，可以较小计算量，使得模型更轻量。<img src="/" class="lazyload" data-src="https://s1.ax1x.com/2020/04/25/JyGMZt.png"  alt="JyGMZt.png"></p>
+<h2 id="Deeplabv3作为编码器"><a href="#Deeplabv3作为编码器" class="headerlink" title="Deeplabv3作为编码器"></a>Deeplabv3作为编码器</h2><p>Deeplabv3+用了它的上一个版本Deeplabv3作为编码器，主要就是作为一个特征提取的主干网络，前面的下采样部分可以使用ResNet或者Xception等特征提取网络，可以下采样16倍，也可以只采样8倍，8倍效果会更好但是有更多的计算量。采样之后就紧接一个ASPP模块，用不同rate的空洞卷积获取到不同感受野和尺度的特征图，然后将他们拼接以后再做卷积。</p>
+<h2 id="解码器"><a href="#解码器" class="headerlink" title="解码器"></a>解码器</h2><p>在之前的工作中，在编码器之后就直接使用16倍的双线性插值恢复原图像大小。但是这会使得物体边缘部分的分类出现问题，所以借用了类似U-net的思想，将ASPP输出的特征图上采样4倍后与主干网络中的低层特征进行拼接融合用于恢复边缘信息，具体操作可以对照网络架构部分的第二幅图。</p>
+<h2 id="对Xception的调整"><a href="#对Xception的调整" class="headerlink" title="对Xception的调整"></a>对Xception的调整</h2><p>同时在用Xception做主干网络时，对它进行了调整使它更适合用于语义分割任务。具体的调整在：</p>
 <ul>
-<li>首先x表示的就是真实样本，z表示随机生成的原始噪声，G(z)表示我们生成网络从噪声当中生成的图片，D(x)表示判别x是真实数据的概率（如果x就是真实的，那么我们希望D(x)接近1，反之希望接近0）。</li>
-<li>G网络：它希望自己生成的样本越真实越好，即希望D(G(z))越大越好，那么上述公式的第二部分就会变小，整个式子V(D,G)也跟着变小。所以可以看到式子前面的符号为$\underset G min$。</li>
-<li>D网络：它则是希望自己有足够强的能力能够有能力分辨真假样本，即D(x)应该大，D(G(z))应该小。那么log(D(x))会变大，log(1-D(G(z)))会变大，整个式子V(D,G)变大，所以式子前面符号为$\underset Dmax$</li>
+<li>加深了Xception的深度（重复了16遍middle flow，原版只有8遍）。</li>
+<li>所有的最大池化操作用带步长的深度可分离卷积替代。</li>
+<li>在每个$3\times3$深度卷积后都加了BN层和ReLU激活函数。</li>
 </ul>
-<p>也可以把上面的式子拆成两部分，一部分是优化D的一部分是优化G的，则对于G网络$$min\log(1-D(G(z)))$$对于D网络$$max\ (logD(x)+log(1-D(G(z))))$$这两个部分交替优化最终达到平衡。作者指出在每遍循环中同时优化D和G有可能导致过拟合，所以建议在k轮的D优化后再优化一遍G。</p>
-<p>同时对于上述的对G网络的优化，由于刚开始G网络还很弱，因此log(1-D(G(z)))会非常小造成溢出，则算法会变得不稳定。作者建议把最小化log(1-D(G(z)))改为最大化log(D(G(z)))会使得算法在刚开始G网络还不是很强时更加稳定（但作者在给出的算法流程中并没有使用）。</p>
-<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><p><img src="/" class="lazyload" data-src="https://pic.downk.cc/item/5e8842a5504f4bcb04aa698a.png"  alt="">注意算法中第一个式子，即优化D的是ascending，因为要求最大化第一个式子，所以是加上梯度，而优化G的第二个式子就是一般的梯度下降，所以是减去梯度。</p>
-<h1 id="一点想法"><a href="#一点想法" class="headerlink" title="一点想法"></a>一点想法</h1><ol>
-<li><p>其实本文从数学角度很详细的论证了该算法的正确性以及收敛性，证明了在生成的样本和真实样本分布相同时，上述算法能收敛到最优，此时D(x)=$\frac{1}{2}$。具体的推导参考<a href="https://ninghaiywx.github.io/2020/04/18/Gan网络全局最优解推导/">另一篇博客</a>。</p>
-</li>
-<li><p>本文开创性的提出了一个新的思想，但没有给出具体的G网络和D网络的定义，文章中也指出虽然算法是可以收敛到最优点的，但是还取决于是否选取了合适的D和G。当然基于这个思想，已经有十分多的人提出了具体的D网络和G网络的实现并且有着很好的性能。</p>
-</li>
-</ol>
+<p>修改后的图如下<img src="/" class="lazyload" data-src="https://s1.ax1x.com/2020/04/25/JytPZn.png"  alt="JytPZn.png"></p>
+<h1 id="我的实验"><a href="#我的实验" class="headerlink" title="我的实验"></a>我的实验</h1><p>作者在论文中也贴出了自己实现的<a href="https://github.com/tensorflow/models/tree/master/research/deeplab" target="_blank" rel="noopener">代码地址</a>)。作为个人学习我自己也简单做了一个实现。使用tensorflow2，主干网络用的就是原版的Xception并没有进行调整，同时ASPP模块部分使用普通卷积而没有用深度可分离卷积，数据集用的还是我在u-net文章中使用的(<a href="https://drive.google.com/file/d/0B0d9ZiqAgFkiOHR1NTJhWVJMNEU/view" target="_blank" rel="noopener">数据集</a>)。</p>
+<h2 id="Xception"><a href="#Xception" class="headerlink" title="Xception"></a>Xception</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">back_bone = keras.applications.Xception(include_top=<span class="literal">False</span>,input_shape=(<span class="number">324</span>,<span class="number">324</span>,<span class="number">3</span>))</span><br><span class="line">layers_name = [</span><br><span class="line">        <span class="string">"block13_sepconv2_bn"</span>,</span><br><span class="line">        <span class="string">"block3_sepconv2_bn"</span></span><br><span class="line">]</span><br><span class="line">layers = [back_bone.get_layer(name).output <span class="keyword">for</span> name <span class="keyword">in</span> layers_name]</span><br><span class="line">down_stack = keras.Model(inputs=back_bone.input, outputs=layers)</span><br><span class="line">down_stack.trainable = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>用了tf2中提供的在Imagenet上训练过的Xception模型作为主干网络，也尝试过VGG-16和ResNet101，发现Xception效果最好。</p>
+<h2 id="ASPP"><a href="#ASPP" class="headerlink" title="ASPP"></a>ASPP</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ASPP</span><span class="params">(X,f)</span>:</span></span><br><span class="line">  x_pool = AveragePooling2D()(X)</span><br><span class="line">  x_pool = Conv2D(f,padding=<span class="string">'same'</span>,kernel_size=<span class="number">1</span>)(x_pool)</span><br><span class="line">  x_pool = BatchNormalization(trainable=<span class="literal">False</span>)(x_pool)</span><br><span class="line">  x_pool = Activation(<span class="string">'relu'</span>)(x_pool)</span><br><span class="line">  x_pool = UpSampling2D(interpolation=<span class="string">'bilinear'</span>)(x_pool)</span><br><span class="line">  <span class="comment"># x_pool = Conv2DTranspose(f,(4,4),(2,2),padding='same')(x_pool)</span></span><br><span class="line"></span><br><span class="line">  x_1 = Conv2D(f,padding=<span class="string">'same'</span>,kernel_size=<span class="number">1</span>,dilation_rate=<span class="number">1</span>)(X)</span><br><span class="line">  x_1 = BatchNormalization()(x_1)</span><br><span class="line">  x_1 = Activation(<span class="string">'relu'</span>)(x_1)</span><br><span class="line"></span><br><span class="line">  x_6 = Conv2D(f,padding=<span class="string">'same'</span>,kernel_size=<span class="number">3</span>,dilation_rate=<span class="number">6</span>)(X)</span><br><span class="line">  x_6 = BatchNormalization(trainable=<span class="literal">False</span>)(x_6)</span><br><span class="line">  x_6 = Activation(<span class="string">'relu'</span>)(x_6)</span><br><span class="line"></span><br><span class="line">  x_12 = Conv2D(f,padding=<span class="string">'same'</span>,kernel_size=<span class="number">3</span>,dilation_rate=<span class="number">12</span>)(X)</span><br><span class="line">  x_12 = BatchNormalization(trainable=<span class="literal">False</span>)(x_12)</span><br><span class="line">  x_12 = Activation(<span class="string">'relu'</span>)(x_12)</span><br><span class="line"></span><br><span class="line">  x_18 = Conv2D(f,padding=<span class="string">'same'</span>,kernel_size=<span class="number">3</span>,dilation_rate=<span class="number">18</span>)(X)</span><br><span class="line">  x_18 = BatchNormalization(trainable=<span class="literal">False</span>)(x_18)</span><br><span class="line">  x_18 = Activation(<span class="string">'relu'</span>)(x_18)</span><br><span class="line"></span><br><span class="line">  x = Concatenate()([x_pool,x_1,x_6,x_12,x_18])</span><br><span class="line">  x = Conv2D(f,padding=<span class="string">'same'</span>,kernel_size=<span class="number">1</span>)(x)</span><br><span class="line">  x = BatchNormalization(trainable=<span class="literal">False</span>)(x)</span><br><span class="line">  x = Activation(<span class="string">'relu'</span>)(x)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+
+<p>上采样部分可以使用二次线性插值或者转置卷积。</p>
+<h2 id="整体网络"><a href="#整体网络" class="headerlink" title="整体网络"></a>整体网络</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DeepLabv3plus</span><span class="params">(input_shape,n_class)</span>:</span></span><br><span class="line">  x_input = Input(input_shape)</span><br><span class="line">  x_padding = ZeroPadding2D(padding=(<span class="number">2</span>,<span class="number">2</span>))(x_input)</span><br><span class="line">  image_features = down_stack(x_padding)[<span class="number">0</span>]</span><br><span class="line">  x_a = ASPP(image_features,<span class="number">256</span>)</span><br><span class="line">  x_a = UpSampling2D((<span class="number">4</span>,<span class="number">4</span>),interpolation=<span class="string">'bilinear'</span>)(x_a)</span><br><span class="line">  <span class="comment"># x_a = Conv2DTranspose(256,(8,8),(4,4),padding='same')(x_a)</span></span><br><span class="line">  </span><br><span class="line">  x_b = down_stack(x_padding)[<span class="number">1</span>]</span><br><span class="line">  x_b = Conv2D(filters=<span class="number">48</span>,padding=<span class="string">'same'</span>,kernel_size=<span class="number">1</span>)(x_b)</span><br><span class="line">  x_b = BatchNormalization(trainable=<span class="literal">False</span>)(x_b)</span><br><span class="line">  x_b = Activation(<span class="string">'relu'</span>)(x_b)</span><br><span class="line"></span><br><span class="line">  x = Concatenate()([x_a,x_b])</span><br><span class="line">  x = Conv2D(filters=<span class="number">256</span>,kernel_size=<span class="number">3</span>,padding=<span class="string">'same'</span>)(x)</span><br><span class="line">  x = BatchNormalization(trainable=<span class="literal">False</span>)(x)</span><br><span class="line">  x = Activation(<span class="string">'relu'</span>)(x)</span><br><span class="line">  x = Conv2D(filters=<span class="number">256</span>,kernel_size=<span class="number">3</span>,padding=<span class="string">'same'</span>)(x)</span><br><span class="line">  x = BatchNormalization(trainable=<span class="literal">False</span>)(x)</span><br><span class="line">  x = Activation(<span class="string">'relu'</span>)(x)</span><br><span class="line">  x = Dropout(<span class="number">0.2</span>)(x)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># x = Conv2DTranspose(256,(8,8),(4,4),padding='same')(x)</span></span><br><span class="line">  x = UpSampling2D((<span class="number">4</span>,<span class="number">4</span>),interpolation=<span class="string">'bilinear'</span>)(x)</span><br><span class="line">  x = Conv2D(n_class,(<span class="number">1</span>,<span class="number">1</span>),padding=<span class="string">'same'</span>,activation=<span class="string">'softmax'</span>)(x)</span><br><span class="line">  model = keras.Model(inputs=x_input,outputs=x)</span><br><span class="line">  <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+
+<p>同样上采样部分可以使用二次线性插值或者转置卷积。</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/" class="lazyload" data-src="https://s1.ax1x.com/2020/04/25/JyUYbd.png"  alt="JyUYbd.png"></p>
+<p>以上是训练集的图片，最下面是网络分类的结果，可以看到几乎一致。在训练集上最高能达到96%的准确率还要高，但是在测试集上却在91%左右，可能由于图片不足以及训练集和测试集分布不一致导致的（训练集行人较少，测试集则都是行人，实际也是在行人等小物件分类出现不足）。但是总体来看还是可以看出deeplabv3+的实力还是不俗的。</p>
 ]]></content>
       <categories>
         <category>深度学习</category>
         <category>论文</category>
-        <category>2014年</category>
+        <category>2018年</category>
       </categories>
       <tags>
         <tag>论文</tag>
@@ -165,6 +161,57 @@
         <category>深度学习</category>
         <category>论文</category>
         <category>2015年</category>
+      </categories>
+      <tags>
+        <tag>论文</tag>
+        <tag>神经网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gan网络全局最优解推导</title>
+    <url>/2020/04/18/Gan%E7%BD%91%E7%BB%9C%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%E8%A7%A3%E6%8E%A8%E5%AF%BC/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本文是对GAN网络中目标函数全局最优解情况的推导，推导过程在<a href="https://arxiv.org/pdf/1406.2661.pdf" target="_blank" rel="noopener">原论文</a>有给出。这里再对其进行一个推导。</p>
+<h1 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h1><p>首先重新看一下目标函数$$\underset Gmin\underset Dmax V(D,G)=E_{x_\tilde{} p_{data}}(x)[logD(x)]+E_{z\tilde{} p_z(z)}[log(1-D(G(z)))]$$</p>
+<p>我们可以先固定G，来求一下D在什么情况下使得函数最大。就变成了求$$\underset Dmax V(D,G)$$</p>
+<h2 id="求解-underset-Dmax-V-D-G"><a href="#求解-underset-Dmax-V-D-G" class="headerlink" title="求解$\underset Dmax V(D,G)$"></a>求解$\underset Dmax V(D,G)$</h2><p>我们先对V(D,G)变一下形，即$$\int_x p_{data}(x)log(D(x))dx+\int_zp_z(z)log(1-D(g(z)))dz$$$$=\int_xp_{data}(x)log(D(x))+p_g(x)log(1-D(x))dx$$</p>
+<p>我们知道对于形如$alog(y)+blog(1-y)$的函数它在[0,1]区间内在$\frac{a}{a+b}$取得最大值，区间为[0,1]是因为x表示的概率分布是[0,1]之间的。所以V(D,G)在$D_G^* = \frac{p_{data}(x)}{p_{data}(x)+p_g(x)}$取得最大值。</p>
+<p>接下来就是求解$\underset GminV(D,G)$。</p>
+<h2 id="求解-underset-GminV-D-G"><a href="#求解-underset-GminV-D-G" class="headerlink" title="求解$\underset GminV(D,G)$"></a>求解$\underset GminV(D,G)$</h2><p>将$\underset DmaxV(D,G)$的$D^* $的值带入原目标函数，则变成了$$C(G) = \underset Dmax V(D,G)$$<br>$$= E_{x_\tilde{} p_{data}}[logD_G^* (x)]+E_{z\tilde{} p_z}[log(1-D_G^* (G(z)))]$$<br>$$=E_{x_\tilde{} p_{data}}[logD_G^* (x)]+E_{x\tilde{} p_g}[log(1-D_G^* (G(x))]$$<br>$$=E_{x_\tilde{} p_{data}}[log\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}]+E_{x\tilde{} p_g}[log\frac{p_g(x)}{p_{data}(x)+p_g(x)}]$$<br>$$=E_{x_\tilde{} p_{data}}[log(\frac{p_{data}(x)}{(p_{data}(x)+p_g(x))/2}* \frac{1}{2})]+E_{x\tilde{} p_g}[log(\frac{p_g(x)}{(p_{data}(x)+p_g(x))/2}* \frac{1}{2})]$$<br>$$=KL(p_{data}||\frac{p_{data}+p_g}{2})+KL(p_g||\frac{p_{data}+p_g}{2})-log4$$<br>由KL散度性质得知当两个分布相等的时候，KL散度为0，所以C(G)在$p^* _g=p_d$的时候最小。把$p^* _g=p_d$再带回$D_G^* $得到$D_G^* =\frac{1}{2}$，这个就是目标函数的全局最优解。</p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文阅读：Generative Adversarial Nets</title>
+    <url>/2020/04/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9AGenerative%20Adversarial%20Nets/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>这篇论文是生成对抗(GAN)网络的奠基之作，它提出了一种全新生成的思想，时至今日都是深度学习中热门的一种模型。它的作者是<strong>Ian J.Goodfellow, Jean Pouget-Abadie*, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio</strong></p>
+<p><a href="https://arxiv.org/pdf/1406.2661.pdf" target="_blank" rel="noopener">原论文</a></p>
+<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>GAN网络其实就是两个网络之间的博弈游戏，即网络和网络之间的对抗，其中一个网络G从随机噪声生成样本，而网络D则从来评判一个样本是真实数据的概率，即判别它是来自真实数据集的可能性大还是来自G生成的可能性大。</p>
+<p>这样就形成了一个两个网络之间的博弈过程，那么理想状态下，G希望生成能以假乱真的样本，而D希望能有足够的能力分辨样本是生成的还是真实数据。这样的博弈最优的情况就是D(G(z))=0.5，这样就达到了一最优的状态。这样就说明D已经比较难以判断G生成的图片是否是真的。这样这个模型中的G网络就可以用来生成数据样本了，目的就达到了。用数学公式描述如下$$\underset Gmin\underset Dmax V(D,G)=E_{x_\tilde{} p_{data}}(x)[logD(x)]+E_{z\tilde{} p_z(z)}[log(1-D(G(z)))]$$我们可以简单解释下这个公式:</p>
+<ul>
+<li>首先x表示的就是真实样本，z表示随机生成的原始噪声，G(z)表示我们生成网络从噪声当中生成的图片，D(x)表示判别x是真实数据的概率（如果x就是真实的，那么我们希望D(x)接近1，反之希望接近0）。</li>
+<li>G网络：它希望自己生成的样本越真实越好，即希望D(G(z))越大越好，那么上述公式的第二部分就会变小，整个式子V(D,G)也跟着变小。所以可以看到式子前面的符号为$\underset G min$。</li>
+<li>D网络：它则是希望自己有足够强的能力能够有能力分辨真假样本，即D(x)应该大，D(G(z))应该小。那么log(D(x))会变大，log(1-D(G(z)))会变大，整个式子V(D,G)变大，所以式子前面符号为$\underset Dmax$</li>
+</ul>
+<p>也可以把上面的式子拆成两部分，一部分是优化D的一部分是优化G的，则对于G网络$$min\log(1-D(G(z)))$$对于D网络$$max\ (logD(x)+log(1-D(G(z))))$$这两个部分交替优化最终达到平衡。作者指出在每遍循环中同时优化D和G有可能导致过拟合，所以建议在k轮的D优化后再优化一遍G。</p>
+<p>同时对于上述的对G网络的优化，由于刚开始G网络还很弱，因此log(1-D(G(z)))会非常小造成溢出，则算法会变得不稳定。作者建议把最小化log(1-D(G(z)))改为最大化log(D(G(z)))会使得算法在刚开始G网络还不是很强时更加稳定（但作者在给出的算法流程中并没有使用）。</p>
+<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><p><img src="/" class="lazyload" data-src="https://pic.downk.cc/item/5e8842a5504f4bcb04aa698a.png"  alt="">注意算法中第一个式子，即优化D的是ascending，因为要求最大化第一个式子，所以是加上梯度，而优化G的第二个式子就是一般的梯度下降，所以是减去梯度。</p>
+<h1 id="一点想法"><a href="#一点想法" class="headerlink" title="一点想法"></a>一点想法</h1><ol>
+<li><p>其实本文从数学角度很详细的论证了该算法的正确性以及收敛性，证明了在生成的样本和真实样本分布相同时，上述算法能收敛到最优，此时D(x)=$\frac{1}{2}$。具体的推导参考<a href="https://ninghaiywx.github.io/2020/04/18/Gan网络全局最优解推导/">另一篇博客</a>。</p>
+</li>
+<li><p>本文开创性的提出了一个新的思想，但没有给出具体的G网络和D网络的定义，文章中也指出虽然算法是可以收敛到最优点的，但是还取决于是否选取了合适的D和G。当然基于这个思想，已经有十分多的人提出了具体的D网络和G网络的实现并且有着很好的性能。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>论文</category>
+        <category>2014年</category>
       </categories>
       <tags>
         <tag>论文</tag>
